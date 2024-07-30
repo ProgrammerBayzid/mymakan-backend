@@ -1,23 +1,26 @@
-FROM node:20-alpine AS development
-WORKDIR /usr/src/app
-COPY --chown=node:node package*.json ./
-RUN npm ci -f
-COPY --chown=node:node . .
-USER node
+# Use the official Node.js image with Yarn as the base image
+FROM node:20-alpine
 
+# Set the working directory inside the container
+WORKDIR /app
 
-FROM node:20-alpine AS build
-WORKDIR /usr/src/app
-COPY --chown=node:node package*.json ./
-COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
-COPY --chown=node:node . .
-RUN npm run build
-RUN npm ci -f --only=production && npm cache clean --force
-USER node
+# Copy package.json and yarn.lock to the working directory
+COPY package*.json npm.lock ./
 
+# Install NestJS CLI globally
+RUN npm global add @nestjs/cli
 
-FROM node:20-alpine AS production
-ENV NODE_ENV production
-COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
-COPY --chown=node:node --from=build /usr/src/app/dist ./dist
-CMD [ "node", "dist/main.js" ]
+# Install dependencies
+RUN npm install
+
+# Copy the application code to the container
+COPY . .
+
+# Build the NestJS application
+RUN nest build
+
+# Expose the port your app runs on
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start:prod"]
