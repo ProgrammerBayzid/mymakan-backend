@@ -44,3 +44,4 @@ jobs:
             npm run build
             pm2 reload all
             pm2 restart all
+          timeout: 600s # Increase timeout to 10 minutes (600 seconds)
