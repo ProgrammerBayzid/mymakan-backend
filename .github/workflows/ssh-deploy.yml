@@ -36,9 +36,11 @@ jobs:
           script: |
             cd /home/ubuntu/mymakan-backend/mymakan-backend
             git pull origin main
-            source ~/.nvm/nvm.sh
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
             nvm use 20
             npm install
-            npm build
-            $(which pm2) reload all
-            $(which pm2) restart all
+            npm run build
+            pm2 reload all
+            pm2 restart all
