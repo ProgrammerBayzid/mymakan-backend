@@ -10,7 +10,6 @@ import { APP_GUARD } from '@nestjs/core';
 import { AtGuard } from './common/guards/access-token.guard';
 import { CompanyModule } from './company/company.module';
 import { CountryModule } from './country/country.module';
-import { TwilioModule } from './twilio/twilio.module';
 import { FileUploadModule } from './file-upload/file-upload.module';
 import { AgentPostCommentModule } from './agent-post-comment/agent-post-comment.module';
 import { AgentPostCommentReplyModule } from './agent-post-comment-reply/agent-post-comment-reply.module';
@@ -36,7 +35,6 @@ import { FollowModule } from './follow/follow.module';
     AgentModule,
     CompanyModule,
     CountryModule,
-    TwilioModule,
     FileUploadModule,
     AgentPostCommentModule,
     AgentPostCommentReplyModule,
