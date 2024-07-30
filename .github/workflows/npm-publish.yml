@@ -5,19 +5,18 @@ name: Node.js Cl
 
 on:
   release:
-    types: [master]
+    types: [main]
 
 jobs:
   build:
     runs-on: self-hosted
 
     strategy:
-       matrix:
-         node-version: [20x]
+      matrix:
+        node-version: [20x]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 20
       - run: npm ci
-
