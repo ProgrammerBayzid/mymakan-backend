@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/getfit-node-server/nodejs-server
+            cd /home/ubuntu/MyMakanNestjsBackend/mymakan-backend
             git pull origin main
             source ~/.nvm/nvm.sh
             nvm use 20
