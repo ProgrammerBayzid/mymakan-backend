@@ -19,7 +19,6 @@ const core_1 = require("@nestjs/core");
 const access_token_guard_1 = require("./common/guards/access-token.guard");
 const company_module_1 = require("./company/company.module");
 const country_module_1 = require("./country/country.module");
-const twilio_module_1 = require("./twilio/twilio.module");
 const file_upload_module_1 = require("./file-upload/file-upload.module");
 const agent_post_comment_module_1 = require("./agent-post-comment/agent-post-comment.module");
 const agent_post_comment_reply_module_1 = require("./agent-post-comment-reply/agent-post-comment-reply.module");
@@ -47,7 +46,6 @@ exports.AppModule = AppModule = __decorate([
             agent_module_1.AgentModule,
             company_module_1.CompanyModule,
             country_module_1.CountryModule,
-            twilio_module_1.TwilioModule,
             file_upload_module_1.FileUploadModule,
             agent_post_comment_module_1.AgentPostCommentModule,
             agent_post_comment_reply_module_1.AgentPostCommentReplyModule,
