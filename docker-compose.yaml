@@ -5,7 +5,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./
-    container_name: imbayzid-ms
+    container_name: imbayzi
     ports:
       - "4000:4000"
     restart: always
