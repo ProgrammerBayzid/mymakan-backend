@@ -1,6 +1,5 @@
 version: "3"
 services:
-
   imbayzid-ms:
     build:
       dockerfile: Dockerfile
@@ -12,6 +11,13 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-
-    env_file:
-      - .env
+    environment:
+      - AT_SECRET_KEY=${AT_SECRET_KEY}
+      - RT_SECRET_KEY=${RT_SECRET_KEY}
+      - MONGO_URI=${MONGO_URI}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER}
+      - ALPHANUMERIC_SENDER_ID=${ALPHANUMERIC_SENDER_ID}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
