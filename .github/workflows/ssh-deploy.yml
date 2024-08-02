@@ -42,15 +42,3 @@ jobs:
             npm build
             $(which pm2) reload all
             $(which pm2) restart all
-            export AT_SECRET_KEY=${{ secrets.AT_SECRET_KEY }}
-            export RT_SECRET_KEY=${{ secrets.RT_SECRET_KEY }}
-            export MONGO_URI=${{ secrets.MONGO_URI }}
-            export TWILIO_ACCOUNT_SID=${{ secrets.TWILIO_ACCOUNT_SID }}
-            export TWILIO_AUTH_TOKEN=${{ secrets.TWILIO_AUTH_TOKEN }}
-            export TWILIO_PHONE_NUMBER=${{ secrets.TWILIO_PHONE_NUMBER }}
-            export ALPHANUMERIC_SENDER_ID=${{ secrets.ALPHANUMERIC_SENDER_ID }}
-            export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-            export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            export PORT=4000
-            docker-compose down
-            docker-compose up --build -d
